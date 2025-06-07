@@ -8,7 +8,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vsc-extension" is now active!');
+	console.log('🎉 EXTENSION ACTIVATED: vsc-extension is now active!');
+	
+	// Show a notification when extension loads
+	vscode.window.showInformationMessage('🚀 vsc-extension has been activated!');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
@@ -16,11 +19,14 @@ export function activate(context: vscode.ExtensionContext) {
 	const disposable = vscode.commands.registerCommand('vsc-extension.helloWorld', () => {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from vsc-extension!');
+		console.log('Hello World command executed!');
+		vscode.window.showInformationMessage('🌟 Hello World from vsc-extension! 🌟');
 	});
 
 	context.subscriptions.push(disposable);
 }
 
 // This method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() {
+	console.log('Extension deactivated');
+}
